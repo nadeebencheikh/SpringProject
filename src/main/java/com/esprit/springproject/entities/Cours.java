@@ -1,12 +1,20 @@
 package com.esprit.springproject.entities;
 import com.esprit.springproject.entities.ennum.Support;
 import com.esprit.springproject.entities.ennum.TypeCours;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table( name = "Cours")
 public class Cours implements Serializable {
     @Id
