@@ -13,7 +13,7 @@ public class MoniteurService implements IMoniteurService {
     MoniteurRepository moniteurrepo;
     @Override
     public List<Moniteur> retrieveAllMoniteurs() {
-        return (List<Moniteur>) moniteurrepo.findAll();
+        return  moniteurrepo.findAll();
     }
 
     @Override
