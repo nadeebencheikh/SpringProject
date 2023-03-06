@@ -1,4 +1,4 @@
-package com.esprit.springproject.entities.controller;
+package com.esprit.springproject.controller;
 
 import com.esprit.springproject.entities.Moniteur;
 import com.esprit.springproject.entities.Skieur;
@@ -16,6 +16,14 @@ public class SkieurController {
     @GetMapping("/retrieve-all-skieurs")
     public List<Skieur> getSkieur(){
         return ss.retrieveAllSkieur();
+    }
+    @PostMapping("/add-skieur-abonnment")
+    public void addSkieur1(@RequestBody Skieur s) {
+        ss.addSkieur1(s);
+    }
+    @PostMapping("/add-skieur-inscription")
+    public void addSkieur2(@RequestBody Skieur s) {
+        ss.addSkieur2(s);
     }
     @PostMapping("/add-skieur")
     public void addSkieur(@RequestBody Skieur s) {

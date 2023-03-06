@@ -1,4 +1,4 @@
-package com.esprit.springproject.entities.controller;
+package com.esprit.springproject.controller;
 
 import com.esprit.springproject.entities.Cours;
 import com.esprit.springproject.services.CourService;
