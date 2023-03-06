@@ -1,4 +1,4 @@
-package com.esprit.springproject.entities.controller;
+package com.esprit.springproject.controller;
 import com.esprit.springproject.entities.Piste;
 import com.esprit.springproject.services.PisteService;
 import lombok.AllArgsConstructor;
