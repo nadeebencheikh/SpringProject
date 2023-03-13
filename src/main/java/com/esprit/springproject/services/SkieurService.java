@@ -1,10 +1,11 @@
 package com.esprit.springproject.services;
 
+import com.esprit.springproject.entities.Cours;
 import com.esprit.springproject.entities.Inscription;
+import com.esprit.springproject.entities.Piste;
 import com.esprit.springproject.entities.Skieur;
-import com.esprit.springproject.repositories.AbonnementRepository;
-import com.esprit.springproject.repositories.InscriptionRepository;
-import com.esprit.springproject.repositories.SkieurRepository;
+import com.esprit.springproject.entities.ennum.TypeAbonnement;
+import com.esprit.springproject.repositories.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,9 @@ public class SkieurService implements ISkieurService {
     SkieurRepository sr;
     AbonnementRepository ar;
     InscriptionRepository ir;
+    PisteRepository pr;
+
+    CoursRepository cr;
     @Override
     public List<Skieur> retrieveAllSkieur() {
        return sr.findAll();
@@ -53,4 +57,26 @@ public class SkieurService implements ISkieurService {
     public void deleteSkieur(Integer idSkieur) {
      sr.deleteById(idSkieur);
     }
+
+    public Skieur assignSkieurToPiste(Long numSkieur, Long numPiste){
+        Skieur s = sr.findByNumSkieur(numSkieur);
+        Piste p = pr.findByNumPiste(numPiste);
+
+        p.getSkieurs().add(s);
+        return s;
+
+
+    }
+    public Skieur addSkieurAndAssignToCours(Skieur skieur, Long numCours){
+        Cours c = cr.findByNumCours(numCours);
+        for (Inscription inscription : skieur.getInscriptions()) {
+            inscription.setCour(c);
+        }
+        return sr.save(skieur);
+    }
+
+    public List<Skieur> retrieveSkieursByAbonnementType(TypeAbonnement typeAbonnement){
+       return sr.findByAbonnement_TypeAbon(typeAbonnement);
+    }
+
 }

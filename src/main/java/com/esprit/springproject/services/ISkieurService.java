@@ -1,5 +1,6 @@
 package com.esprit.springproject.services;
 import com.esprit.springproject.entities.Skieur;
+import com.esprit.springproject.entities.ennum.TypeAbonnement;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface ISkieurService {
     Skieur retrieveSkieur(Integer idSkieur);
 
     void deleteSkieur( Integer idSkieur);
+
+    Skieur addSkieurAndAssignToCours(Skieur skieur, Long numCours);
+    List<Skieur> retrieveSkieursByAbonnementType(TypeAbonnement typeAbonnement);
 }

@@ -38,6 +38,9 @@ public class SkieurController {
         ss.deleteSkieur(id);
     }
 
+    @PostMapping("/add-skieur-cour")
+    public void addSkieurcour(@RequestBody Skieur s , @RequestBody Long numCours ) { ss.addSkieurAndAssignToCours(s,numCours); }
+
 
 
 

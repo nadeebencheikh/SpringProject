@@ -31,7 +31,10 @@ public class MoniteurController {
             ms.deleteMoniteur(id);
         }
 
-
+    @PostMapping("/add-moniteur-cour")
+    public void addMonitorcour(@RequestBody Moniteur mn) {
+        ms.addMoniteurAndAssignToCours(mn);
+    }
 
 
 

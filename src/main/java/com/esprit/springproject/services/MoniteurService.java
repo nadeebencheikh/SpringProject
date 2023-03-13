@@ -38,4 +38,9 @@ public class MoniteurService implements IMoniteurService {
     public void deleteMoniteur(Integer idMoniteur) {
         moniteurrepo.deleteById(idMoniteur);
     }
+
+    public Moniteur addMoniteurAndAssignToCours(Moniteur moniteur) {
+        return moniteurrepo.save(moniteur);
+
+    }
 }
