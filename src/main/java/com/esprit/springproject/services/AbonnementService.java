@@ -1,11 +1,13 @@
 package com.esprit.springproject.services;
 
 import com.esprit.springproject.entities.Abonnement;
+import com.esprit.springproject.entities.ennum.TypeAbonnement;
 import com.esprit.springproject.repositories.AbonnementRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @AllArgsConstructor
@@ -37,5 +39,9 @@ public class AbonnementService implements IAbonnementService{
     @Override
     public void deleteAbonnement(Integer idAbonnement) {
        ar.deleteById(idAbonnement);
+    }
+
+    public Set<Abonnement> getAbonnementByType(TypeAbonnement type) {
+        return ar.findByTypeAbon(type);
     }
 }
